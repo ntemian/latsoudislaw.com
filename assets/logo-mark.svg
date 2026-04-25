@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="L+A Logos">
+  <title>L+A Logos</title>
+  <desc>Monastic mark — outer circle r=32, stroke 2; inner dot r=4. Ratio 1:8. currentColor-driven.</desc>
+  <circle cx="50" cy="50" r="32" fill="none" stroke="currentColor" stroke-width="2"/>
+  <circle cx="50" cy="50" r="4" fill="currentColor"/>
+</svg>

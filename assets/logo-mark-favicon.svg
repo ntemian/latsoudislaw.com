@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="L+A Logos">
+  <title>L+A Logos — favicon</title>
+  <desc>Optical adjustment for ≤32px: stroke bumped to 4, dot bumped to r=8. Preserves monastic balance at favicon scale.</desc>
+  <circle cx="50" cy="50" r="32" fill="none" stroke="currentColor" stroke-width="4"/>
+  <circle cx="50" cy="50" r="8" fill="currentColor"/>
+</svg>

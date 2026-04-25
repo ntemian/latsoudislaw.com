@@ -1,516 +1,168 @@
 <!doctype html>
-<html lang="en">
+<html lang="el">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>L+A — Latsoudis+Associates · LegalTech and Commercial Counsel</title>
-<meta name="description" content="L+A is an Athens law firm advising multinationals and growth-stage technology companies on commercial law and LegalTech & compliance. Listed in Legal 500.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --paper:       oklch(0.97 0.010 82);
-    --paper-2:     oklch(0.99 0.006 82);
-    --paper-deep:  oklch(0.94 0.014 82);
-    --ink:         oklch(0.22 0.008 60);
-    --ink-soft:    oklch(0.42 0.010 60);
-    --ink-mute:    oklch(0.58 0.008 60);
-    --rule:        oklch(0.86 0.012 80);
-    --rule-strong: oklch(0.74 0.014 78);
-    --serif: 'Playfair Display', Georgia, serif;
-    --sans:  'Inter', system-ui, sans-serif;
-    --mono:  'JetBrains Mono', ui-monospace, monospace;
-    --measure: 580px;
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-  a { color: inherit; }
-  ::selection { background: var(--paper-deep); color: var(--ink); }
-
-  /* ====== NAV ====== */
-  .nav {
-    display: flex; align-items: baseline; justify-content: space-between;
-    padding: 28px 56px;
-    max-width: 1280px; margin: 0 auto;
-  }
-  .mark {
-    font-family: var(--serif);
-    display: inline-flex; align-items: baseline; gap: 16px;
-    text-decoration: none; color: var(--ink);
-    letter-spacing: -0.005em;
-  }
-  .mark-short {
-    font-size: 26px; font-weight: 700; letter-spacing: -0.02em;
-  }
-  .mark-divider {
-    width: 1px; height: 16px; background: var(--rule-strong);
-    align-self: center;
-  }
-  .mark-full {
-    font-size: 15px; font-weight: 500; color: var(--ink-soft);
-    letter-spacing: 0.003em;
-  }
-  .mark .plus { color: var(--ink-mute); font-weight: 400; padding: 0 0.5px; }
-  .nav-links {
-    display: flex; gap: 28px; font-size: 14px;
-    color: var(--ink-soft);
-  }
-  .nav-links a {
-    text-decoration: none;
-    transition: color 120ms ease;
-  }
-  .nav-links a:hover { color: var(--ink); }
-
-  /* ====== SHARED ====== */
-  .container {
-    max-width: 1280px; margin: 0 auto;
-    padding: 0 56px;
-  }
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 11.5px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--ink-mute);
-  }
-  .section-rule {
-    height: 1px; background: var(--rule); margin: 0 56px;
-    max-width: 1280px;
-  }
-  /* Use a centered one when needed */
-  .rule-wrap { max-width: 1280px; margin: 0 auto; }
-  .rule-wrap .section-rule { margin: 0 56px; }
-
-  /* ====== HERO ====== */
-  .hero {
-    padding: 88px 0 96px;
-  }
-  .hero-eyebrow { margin-bottom: 36px; }
-  .hero-headline {
-    font-family: var(--serif);
-    font-size: clamp(44px, 5vw, 64px);
-    line-height: 1.02;
-    font-weight: 500;
-    letter-spacing: -0.018em;
-    margin: 0 0 28px;
-    max-width: 880px;
-    text-wrap: pretty;
-  }
-  .hero-headline em {
-    font-style: italic; color: var(--ink-soft); font-weight: 400;
-  }
-  .hero-lede {
-    font-size: 18px; line-height: 1.55; color: var(--ink-soft);
-    max-width: var(--measure);
-    margin: 0;
-  }
-  .hero-cta {
-    margin-top: 44px;
-    display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
-  }
-  .btn-primary {
-    display: inline-block;
-    padding: 13px 22px;
-    background: var(--ink);
-    color: var(--paper);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 2px;
-    transition: background 150ms ease, transform 150ms ease;
-  }
-  .btn-primary:hover { background: oklch(0.30 0.010 60); }
-  .cta-meta {
-    font-family: var(--mono); font-size: 12px;
-    color: var(--ink-mute); letter-spacing: 0.04em;
-  }
-
-  /* ====== PRACTICE ====== */
-  .section { padding: 88px 0; }
-  .section-header {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 32px;
-    align-items: baseline;
-    margin-bottom: 56px;
-    padding-bottom: 0;
-  }
-  .section-title {
-    font-family: var(--serif);
-    font-size: clamp(32px, 3.5vw, 44px);
-    font-weight: 500;
-    letter-spacing: -0.012em;
-    line-height: 1.05;
-    margin: 0;
-    text-wrap: balance;
-  }
-  .practice-grid {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 32px;
-  }
-  .practice-area {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    padding: 40px 0;
-    border-top: 1px solid var(--rule);
-  }
-  .practice-area:last-child { border-bottom: 1px solid var(--rule); }
-  .practice-area h3 {
-    font-family: var(--serif);
-    font-size: 28px;
-    font-weight: 500;
-    letter-spacing: -0.008em;
-    margin: 0 0 8px;
-    line-height: 1.15;
-  }
-  .practice-area .area-eyebrow {
-    margin-bottom: 14px;
-  }
-  .practice-area p {
-    font-size: 15.5px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    margin: 0 0 20px;
-    max-width: 480px;
-  }
-  .practice-list {
-    list-style: none;
-    margin: 0; padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    align-self: start;
-  }
-  .practice-list li {
-    font-size: 14px;
-    color: var(--ink);
-    padding: 10px 0;
-    border-bottom: 1px dashed var(--rule);
-    display: grid;
-    grid-template-columns: 24px 1fr;
-    gap: 10px;
-  }
-  .practice-list li:last-child { border-bottom: none; }
-  .practice-list .num {
-    font-family: var(--mono); font-size: 11px;
-    color: var(--ink-mute); letter-spacing: 0.05em;
-    padding-top: 2px;
-  }
-
-  /* ====== FIRM NOTE ====== */
-  .firm {
-    background: var(--paper-2);
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-  .firm-inner {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 32px;
-    padding: 88px 0;
-  }
-  .firm-body {
-    max-width: 640px;
-  }
-  .firm-body h2 {
-    font-family: var(--serif);
-    font-size: clamp(28px, 3vw, 36px);
-    font-weight: 500;
-    letter-spacing: -0.010em;
-    line-height: 1.15;
-    margin: 0 0 28px;
-    text-wrap: balance;
-  }
-  .firm-body p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--ink);
-    margin: 0 0 20px;
-  }
-  .firm-body p:last-child { margin-bottom: 0; }
-  .firm-body em {
-    font-style: italic; color: var(--ink-soft);
-  }
-
-  /* ====== CONTACT ====== */
-  .contact-inner {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 32px;
-    padding: 88px 0;
-  }
-  .contact-body { max-width: 640px; }
-  .contact-headline {
-    font-family: var(--serif);
-    font-size: clamp(36px, 4vw, 56px);
-    font-weight: 500;
-    letter-spacing: -0.014em;
-    line-height: 1.05;
-    margin: 0 0 28px;
-    text-wrap: pretty;
-  }
-  .contact-email {
-    font-family: var(--serif);
-    font-size: 32px;
-    font-weight: 500;
-    letter-spacing: -0.005em;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule-strong);
-    padding-bottom: 4px;
-    transition: border-color 150ms ease;
-    display: inline-block;
-    margin-bottom: 28px;
-  }
-  .contact-email:hover { border-color: var(--ink); }
-  .contact-meta {
-    font-size: 14px; color: var(--ink-soft);
-    line-height: 1.7;
-  }
-  .contact-meta strong {
-    font-weight: 500; color: var(--ink);
-    font-family: var(--mono); font-size: 12px;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    display: inline-block; margin-right: 6px;
-  }
-  .contact-meta-row { padding: 6px 0; }
-
-  /* ====== FOOTER ====== */
-  .foot {
-    border-top: 1px solid var(--rule);
-    padding: 36px 0 32px;
-  }
-  .foot-inner {
-    display: flex; justify-content: space-between; align-items: baseline;
-    font-family: var(--mono); font-size: 11.5px;
-    color: var(--ink-mute); letter-spacing: 0.04em;
-  }
-  .foot a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--ink-mute); }
-  .foot-left, .foot-right { display: flex; gap: 18px; align-items: baseline; }
-
-  /* ====== RESPONSIVE ====== */
-  @media (max-width: 900px) {
-    .nav { padding: 22px 28px; }
-    .container { padding: 0 28px; }
-    .section { padding: 60px 0; }
-    .hero { padding: 56px 0 64px; }
-    .section-header,
-    .practice-grid,
-    .firm-inner,
-    .contact-inner {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-    .practice-area { grid-template-columns: 1fr; gap: 24px; padding: 28px 0; }
-    .nav-links { gap: 16px; }
-    .mark-full { display: none; }
-    .mark-divider { display: none; }
-    .contact-email { font-size: 24px; }
-  }
-  @media (max-width: 540px) {
-    .foot-inner { flex-direction: column; gap: 12px; }
-  }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L+A Logos · Δικηγορική Εταιρεία Λατσούδη</title>
+<meta name="description" content="Boutique δικηγορική εταιρεία — εμπορικό, ναυτιλιακό, οικογενειακό, ποινικό. L+A Logos: ιδιόκτητη μηχανή ανάλυσης χτισμένη σε bespoke νομική οντολογία 20+ ετών.">
+<link rel="icon" type="image/svg+xml" href="assets/logo-mark-favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/mark-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/mark-16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<!-- ====== NAV ====== -->
-<header>
-  <nav class="nav">
-    <a class="mark" href="#top">
-      <span class="mark-short">L<span class="plus">+</span>A</span>
-      <span class="mark-divider"></span>
-      <span class="mark-full">Latsoudis<span class="plus">+</span>Associates</span>
-    </a>
-    <div class="nav-links">
-      <a href="#practice">Practice</a>
-      <a href="#firm">Firm</a>
-      <a href="#contact">Contact</a>
-    </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="32" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="50" cy="50" r="4" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <svg class="mark"><use href="#mark"/></svg>
+    <span class="word">L<span class="plus">+</span>A&nbsp;LOGOS</span>
+    <span class="sub">Intelligence System</span>
+  </a>
+  <nav class="tabs">
+    <a href="/" class="active">Αρχική</a>
+    <a href="logos.html">L+A Logos</a>
+    <a href="praktiki.html">Πρακτική</a>
+    <a href="omada.html">Ομάδα</a>
+    <a href="epikoinonia.html">Επικοινωνία</a>
   </nav>
+  <div class="lang">
+    <a href="/" class="active">EL</a>
+    <a href="en/">EN</a>
+  </div>
 </header>
 
-<a id="top"></a>
+<main>
 
-<!-- ====== HERO ====== -->
-<section class="hero">
-  <div class="container">
-    <div class="eyebrow hero-eyebrow">Athens · Listed in Legal 500</div>
-    <h1 class="hero-headline">
-      LegalTech and commercial counsel
-      <em>for businesses that move quickly.</em>
-    </h1>
-    <p class="hero-lede">
-      Multinationals and growth-stage technology companies retain L+A for the
-      same reason: clear advice when the technology is moving faster than the
-      regulation around it.
-    </p>
-    <div class="hero-cta">
-      <a class="btn-primary" href="mailto:business@latsoudislaw.com">Begin a conversation</a>
-      <span class="cta-meta">business@latsoudislaw.com · 24/7 helpdesk</span>
+<section>
+  <h1 class="hero">
+    Boutique δικηγορική εταιρεία στον Πειραιά και την Αθήνα.<br>
+    <span class="accent">Ιδιόκτητη μηχανή ανάλυσης</span> για τις υποθέσεις που μετράνε.
+  </h1>
+  <p class="lede">
+    Εμπορικό. Ναυτιλιακό. Οικογενειακό. Ποινικό. Σε κάθε αντικείμενο, η εργασία πατάει σε ένα ιδιωτικό
+    αναλυτικό σύστημα — το <strong>L+A Logos</strong> — χτισμένο πάνω σε bespoke νομική οντολογία
+    20+ ετών. Δεν είναι εργαλείο που αγόρασε η εταιρεία· είναι ο τρόπος με τον οποίο δουλεύουμε.
+  </p>
+</section>
+
+<section>
+  <h2 class="section"><span class="num">01</span>Τι κάνουμε</h2>
+  <div class="grid three">
+    <div class="cell">
+      <span class="num">α</span>
+      <h3>Εμπορικό &amp; Ναυτιλιακό</h3>
+      <p>Συμβάσεις, διανομή, είσπραξη απαιτήσεων, διαφορές P&amp;I, crew claims, charterparty disputes. Ελληνικό δίκαιο πρωτεύον, αγγλοσαξονικοί αντισυμβαλλόμενοι ρουτίνα.</p>
+    </div>
+    <div class="cell">
+      <span class="num">β</span>
+      <h3>Οικογενειακό &amp; Ποινικό</h3>
+      <p>Διαζύγιο, επιμέλεια, ασφαλιστικά μέτρα, ποινικές προεκτάσεις. Μάχη πολυετής — με πειθαρχημένη ροή προτάσεων, καταθέσεων και αντικρούσεων.</p>
+    </div>
+    <div class="cell">
+      <span class="num">γ</span>
+      <h3>Ακίνητα &amp; Ιδιωτικό</h3>
+      <p>Τίτλοι, εργολαβικά, κληρονομικά, τραπεζική υπεξαίρεση, παυλιανές αγωγές. Γαλαξίδι, Δελφική περιοχή, Αττική.</p>
     </div>
   </div>
 </section>
 
-<div class="rule-wrap"><div class="section-rule"></div></div>
+<section>
+  <h2 class="section"><span class="num">02</span>L+A Logos — η μηχανή κάτω από κάθε φάκελο</h2>
+  <p class="body">
+    Το L+A Logos δεν είναι ChatGPT για δικηγόρους με ελληνικό prompt. Είναι η κωδικοποίηση του τρόπου
+    με τον οποίο το L+A κερδίζει υποθέσεις εδώ και έναν αιώνα. Διαβάζει το πλήρες υλικό μιας υπόθεσης —
+    δικογραφία, αποφάσεις, καταθέσεις, αλληλογραφία — και το αναλύει <em>κατά νόημα</em>, όχι κατά λέξη.
+  </p>
+  <p class="body">
+    Η μηχανή τρέχει απευθείας πάνω στα μοντέλα των κατασκευαστριών εταιρειών — όχι μέσω τρίτων
+    διαμεσολαβητών — και διασταυρώνει το νομικό υλικό με ένα αρχείο μοτίβων εκατό ετών αττικής δικαστηριακής πρακτικής.
+  </p>
+  <p style="margin-top: 18px;">
+    <a href="logos.html">Πώς λειτουργεί →</a>
+  </p>
+</section>
 
-<!-- ====== PRACTICE ====== -->
-<section class="section" id="practice">
-  <div class="container">
-    <div class="section-header">
-      <div class="eyebrow">Practice</div>
-      <h2 class="section-title">
-        Two pillars, one operating principle &mdash; treat the regulation
-        and the technology as one subject.
-      </h2>
+<section>
+  <h2 class="section"><span class="num">03</span>Σήμερα</h2>
+  <div class="stats">
+    <div>
+      <div class="label">Έδρες</div>
+      <div class="value">2</div>
+      <div class="sub">Πειραιάς · Αθήνα</div>
     </div>
-
-    <div class="practice-grid">
-      <div></div>
-      <div>
-        <article class="practice-area">
-          <div>
-            <div class="eyebrow area-eyebrow">01 &nbsp;·&nbsp; Practice area</div>
-            <h3>Commercial Law</h3>
-            <p>
-              Contracts, distribution, recovery, and the disputes that follow
-              when commercial relationships break down. Cross-border where it
-              matters &mdash; Greek law primary, EU law adjacent, common-law
-              counterparties routine.
-            </p>
-            <p>
-              The work the firm has done for two decades, sharpened by the
-              technology layer that now sits on top of every commercial
-              arrangement.
-            </p>
-          </div>
-          <ul class="practice-list">
-            <li><span class="num">i.</span><span>Commercial contracts &amp; distribution</span></li>
-            <li><span class="num">ii.</span><span>Debt recovery &amp; enforcement</span></li>
-            <li><span class="num">iii.</span><span>Cross-border disputes &amp; arbitration</span></li>
-            <li><span class="num">iv.</span><span>Corporate &amp; M&amp;A advisory</span></li>
-            <li><span class="num">v.</span><span>Real estate &amp; secured lending</span></li>
-          </ul>
-        </article>
-
-        <article class="practice-area">
-          <div>
-            <div class="eyebrow area-eyebrow">02 &nbsp;·&nbsp; Practice area</div>
-            <h3>LegalTech &amp; Compliance</h3>
-            <p>
-              Counsel for technology companies and for the technology inside
-              non-technology companies. Privacy, data, AI, platform regulation
-              &mdash; the regimes drafted yesterday for products built tomorrow.
-            </p>
-            <p>
-              We advise on what the rule says, what the regulator means, and
-              how the engineering team should ship in the meantime.
-            </p>
-          </div>
-          <ul class="practice-list">
-            <li><span class="num">i.</span><span>GDPR &amp; cross-border data transfers</span></li>
-            <li><span class="num">ii.</span><span>EU AI Act readiness &amp; governance</span></li>
-            <li><span class="num">iii.</span><span>DSA / DMA &amp; platform compliance</span></li>
-            <li><span class="num">iv.</span><span>Technology contracts &amp; licensing</span></li>
-            <li><span class="num">v.</span><span>Regulatory investigations</span></li>
-          </ul>
-        </article>
-      </div>
+    <div>
+      <div class="label">Ηλικία οντολογίας</div>
+      <div class="value"><span class="accent">20+</span> έτη</div>
+      <div class="sub">bespoke νομική</div>
+    </div>
+    <div>
+      <div class="label">Αρχείο μοτίβων</div>
+      <div class="value">100 έτη</div>
+      <div class="sub">δικαστηριακής εμπειρίας</div>
+    </div>
+    <div>
+      <div class="label">Μοντέλα AI</div>
+      <div class="value">Direct</div>
+      <div class="sub">από κατασκευάστριες</div>
     </div>
   </div>
 </section>
 
-<!-- ====== FIRM NOTE ====== -->
-<section class="firm" id="firm">
-  <div class="container">
-    <div class="firm-inner">
-      <div class="eyebrow">Firm</div>
-      <div class="firm-body">
-        <h2>
-          A boutique built for businesses whose technology
-          outruns their lawyers.
-        </h2>
-        <p>
-          L+A is an Athens law firm. We act for multinationals and
-          growth-stage technology companies whose commercial reality
-          changes faster than the legal apparatus around it. Distribution
-          agreements written for atoms get tested against bits; privacy
-          regimes drafted for one continent meet products built for several;
-          recovery actions cross five jurisdictions before they reach a
-          courtroom.
-        </p>
-        <p>
-          The firm was built for that gap. Our practice rests on two
-          pillars &mdash; Commercial Law and LegalTech &amp; Compliance &mdash;
-          and on the conviction that the best counsel treats the regulation
-          and the technology as one subject, not two.
-        </p>
-        <p>
-          <em>
-            Listed in Legal 500. Working in English and Greek, in Athens and
-            wherever the matter requires.
-          </em>
-        </p>
-      </div>
-    </div>
-  </div>
+<section class="cta">
+  <h3>Έχετε υπόθεση;</h3>
+  <p>
+    Η πρώτη επαφή είναι σύντομη — τι είναι, σε ποια διαδικασία, μέχρι πότε.
+    Η ανάλυση ξεκινά μόλις λάβουμε το υλικό.
+  </p>
+  <a class="btn" href="epikoinonia.html">Επικοινωνία</a>
 </section>
 
-<!-- ====== CONTACT ====== -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <div class="eyebrow">Contact</div>
-      <div class="contact-body">
-        <h2 class="contact-headline">
-          Write to the firm.
-        </h2>
-        <a class="contact-email" href="mailto:business@latsoudislaw.com">
-          business@latsoudislaw.com
-        </a>
-        <div class="contact-meta">
-          <div class="contact-meta-row">
-            <strong>Hours</strong>
-            24/7 business helpdesk &mdash; same-day response in EU business hours.
-          </div>
-          <div class="contact-meta-row">
-            <strong>Location</strong>
-            Athens, Greece.
-          </div>
-          <div class="contact-meta-row">
-            <strong>Languages</strong>
-            English, Greek.
-          </div>
-        </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="col-brand">
+      <div class="markrow">
+        <svg><use href="#mark"/></svg>
+        <span class="word">L<span class="plus">+</span>A&nbsp;LOGOS</span>
       </div>
+      <div class="blurb">
+        Δικηγορική εταιρεία Λατσούδη · Πειραιάς + Αθήνα. Ιδιωτικό αναλυτικό σύστημα — bespoke νομική οντολογία 20+ ετών.
+      </div>
+    </div>
+    <div>
+      <h4>Πλοήγηση</h4>
+      <ul>
+        <li><a href="/">Αρχική</a></li>
+        <li><a href="logos.html">L+A Logos</a></li>
+        <li><a href="praktiki.html">Πρακτική</a></li>
+        <li><a href="omada.html">Ομάδα</a></li>
+        <li><a href="epikoinonia.html">Επικοινωνία</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Επαφή</h4>
+      <ul>
+        <li><a href="mailto:elatsoudis@latsoudislaw.com">elatsoudis@latsoudislaw.com</a></li>
+        <li>+30 210 4174 183</li>
+        <li>+30 210 4176 338</li>
+      </ul>
     </div>
   </div>
-</section>
-
-<!-- ====== FOOTER ====== -->
-<footer class="foot">
-  <div class="container">
-    <div class="foot-inner">
-      <div class="foot-left">
-        <span>L<span class="plus" style="color:var(--ink-mute);font-weight:400;padding:0 0.5px;">+</span>A</span>
-        <span>Latsoudis<span class="plus" style="color:var(--ink-mute);font-weight:400;padding:0 0.5px;">+</span>Associates</span>
-        <span>Athens · MMXXVI</span>
-      </div>
-      <div class="foot-right">
-        <a href="mailto:business@latsoudislaw.com">business@latsoudislaw.com</a>
-      </div>
-    </div>
+  <div class="legal">
+    <span>© L+A Logos · Δικηγορική Εταιρεία Λατσούδη</span>
+    <span>Πειραιάς · Αθήνα</span>
   </div>
 </footer>
 
