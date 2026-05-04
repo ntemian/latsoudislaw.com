@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Latsoudis+Associates · Δικηγορική Εταιρία · Πειραιάς</title>
+<meta name="description" content="Λατσούδης+Συνεργάτες — δικηγορική εταιρία με έδρα τον Πειραιά. Ναυτιλιακό · Εμπορικό · Οικογενειακό · Ακίνητα · Ποινικό. Από το 1926.">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* Anatomy-specific extensions, layered on top of brand tokens */
+  body{font-family:var(--sans);font-size:16px;line-height:1.55;color:var(--ink);background:var(--paper);margin:0}
+  .container{max-width:1200px;margin:0 auto;padding:0 48px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .h-serif{font-family:var(--serif);font-weight:500;letter-spacing:-.012em;line-height:1.08;color:var(--ink)}
+  .h1{font-size:clamp(40px,4.5vw,60px)}
+  .h2{font-size:clamp(30px,3.6vw,42px)}
+  .h3{font-size:clamp(22px,2.4vw,28px)}
+  .ink-soft{color:#3d3d3d}
+  .ink-mute{color:var(--muted)}
+  .rule{height:1px;background:var(--hairline);margin:0}
+  .accent{color:var(--teal)}
+  em{font-style:italic;color:#3d3d3d;font-weight:400}
+
+  /* nav */
+  .topnav{display:flex;justify-content:space-between;align-items:baseline;padding:24px 48px;max-width:1200px;margin:0 auto}
+  .brand{display:inline-flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.01em}
+  .brand .plus{color:var(--teal)}
+  .brand .sub{font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-left:8px}
+  .topnav .links{display:flex;gap:28px;font-size:13.5px;color:var(--muted)}
+  .topnav .links a{text-decoration:none;color:var(--muted)}
+  .topnav .links a:hover{color:var(--ink)}
+
+  /* CTA */
+  .cta{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;background:var(--ink);color:var(--paper);font-size:14px;font-weight:500;text-decoration:none;border:1px solid var(--ink);transition:background 120ms,color 120ms}
+  .cta:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+  .cta-ghost{background:transparent;color:var(--ink)}
+  .cta-ghost:hover{background:var(--ink);color:var(--paper)}
+
+  /* §1 hero */
+  .hero{padding:80px 0 56px}
+  .hero h1{margin:24px 0 20px;max-width:920px;text-wrap:pretty}
+  .hero .lede{font-size:19px;color:var(--ink-soft);max-width:640px;margin:0 0 32px;line-height:1.55}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+  .proof-bar{display:flex;gap:24px;flex-wrap:wrap;padding-top:28px;border-top:1px solid var(--hairline);align-items:center}
+  .proof-bar .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .pill{font-family:var(--mono);font-size:12px;color:var(--ink);letter-spacing:.04em;padding:6px 12px;border:1px solid var(--hairline);background:var(--paper-2)}
+
+  /* §2 transformation */
+  .transform{padding:88px 0}
+  .step-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:40px}
+  .step-num{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.18em;margin-bottom:18px}
+  .step h3{font-family:var(--serif);font-size:24px;font-weight:500;margin:0 0 10px;letter-spacing:-.008em}
+  .step p{font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin:0}
+
+  /* §3 benefits */
+  .benefits{padding:88px 0}
+  .benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:48px 0;border-top:1px solid var(--hairline)}
+  .benefit-row:nth-child(even) .b-text{order:2}
+  .benefit-row:nth-child(even) .b-vis{order:1}
+  .b-text h3{font-family:var(--serif);font-size:34px;font-weight:500;line-height:1.1;letter-spacing:-.014em;margin:14px 0 14px}
+  .b-text p{font-size:16.5px;color:var(--ink-soft);line-height:1.6;margin:0 0 14px;max-width:480px}
+  .b-proof{font-family:var(--mono);font-size:12.5px;color:var(--ink);letter-spacing:.02em;padding:10px 14px;background:var(--teal-bg);border-left:2px solid var(--teal);display:inline-block;margin-top:8px}
+  .b-vis{aspect-ratio:5/4;background:var(--paper-2);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+  /* §4 features */
+  .features{padding:88px 0;background:var(--paper-2)}
+  .f-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  .feat{padding:24px;background:var(--paper);border:1px solid var(--hairline)}
+  .feat-icon{font-family:var(--mono);font-size:13px;color:var(--teal);letter-spacing:.04em;margin-bottom:10px}
+  .feat h4{font-family:var(--sans);font-size:14.5px;font-weight:600;margin:0 0 6px}
+  .feat p{font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin:0}
+
+  /* §5 mid CTA */
+  .midcta{padding:72px 0;text-align:center;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+  .midcta .stars{font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.08em;margin-bottom:18px}
+  .midcta .stars b{color:var(--ink)}
+  .midcta h3{margin:0 auto 14px;max-width:760px}
+  .midcta p{color:var(--ink-soft);max-width:560px;margin:0 auto 24px}
+
+  /* §6 practice areas */
+  .areas{padding:88px 0}
+  .area-list{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+  .area{padding:28px;border:1px solid var(--hairline);background:var(--paper-2)}
+  .area-num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+  .area h4{font-family:var(--serif);font-size:22px;font-weight:500;margin:0 0 8px;letter-spacing:-.008em}
+  .area-one{font-size:14.5px;color:var(--ink-soft);line-height:1.5;margin:0 0 14px}
+  .area-list-ul{list-style:none;padding:0;margin:0;font-size:13.5px;color:var(--ink-soft)}
+  .area-list-ul li{padding:6px 0;border-top:1px solid var(--hairline)}
+  .area-list-ul li::before{content:"— ";color:var(--teal);margin-right:4px}
+
+  /* §7 social proof */
+  .social{padding:88px 0;background:var(--paper-2)}
+  .s-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  .quote{padding:28px;background:var(--paper);border:1px solid var(--hairline)}
+  .quote q{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.5;color:var(--ink);display:block;margin-bottom:18px;quotes:"«" "»"}
+  .quote-attr{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;border-top:1px solid var(--hairline);padding-top:12px}
+
+  /* §8 video / case strip */
+  .vstrip{padding:64px 0;text-align:center}
+  .vstrip h3{margin:0 0 28px}
+  .vthumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .vthumb{aspect-ratio:9/12;background:var(--ink);position:relative;cursor:pointer;display:flex;align-items:flex-end;padding:14px;color:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:.06em;transition:transform 200ms ease;text-align:left}
+  .vthumb:hover{transform:scale(1.02)}
+  .vthumb::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,148,136,.15),rgba(0,0,0,.7))}
+  .vthumb span{position:relative;z-index:1}
+
+  /* §9 comparison */
+  .compare{padding:88px 0}
+  table.cmp{width:100%;margin-top:40px;border-collapse:collapse;font-size:14px}
+  table.cmp th,table.cmp td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--hairline);vertical-align:top}
+  table.cmp th{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--paper-2)}
+  table.cmp th:first-child{font-family:var(--sans);text-transform:none;letter-spacing:0;color:var(--ink);font-weight:600;font-size:13.5px}
+  table.cmp td:first-child{font-weight:500;color:var(--ink)}
+  table.cmp .la-col{background:var(--teal-bg)}
+  .yes{color:var(--teal);font-weight:600}
+  .no{color:var(--muted)}
+
+  /* §10 FAQ */
+  .faq{padding:88px 0;background:var(--paper-2)}
+  .faq-list{margin-top:40px;max-width:880px}
+  .faq-item{border-top:1px solid var(--hairline);padding:22px 0}
+  .faq-item:last-child{border-bottom:1px solid var(--hairline)}
+  .faq-q{font-family:var(--serif);font-size:21px;font-weight:500;margin:0 0 8px;letter-spacing:-.006em}
+  .faq-a{font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0;max-width:760px}
+
+  /* §11 image strip */
+  .imgstrip{padding:48px 0}
+  .imgstrip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
+  .imgstrip .tile{aspect-ratio:1/1;background:var(--paper-2);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+
+  /* §12 final CTA */
+  .final{padding:120px 0;text-align:center;background:var(--ink);color:var(--paper)}
+  .final h2{font-family:var(--serif);font-style:italic;font-size:clamp(36px,4.5vw,52px);font-weight:400;letter-spacing:-.014em;line-height:1.08;margin:0 0 20px;max-width:880px;margin-left:auto;margin-right:auto;color:var(--paper)}
+  .final p{font-size:17px;color:#cfd0d3;max-width:560px;margin:0 auto 32px;line-height:1.55}
+  .final .cta{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+  .final .cta:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .final-trust{display:flex;gap:28px;justify-content:center;margin-top:40px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#9ca3af}
+
+  footer{padding:36px 48px;border-top:1px solid var(--hairline);max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;flex-wrap:wrap;gap:12px}
+
+  @media (max-width:840px){
+    .topnav,.container{padding-left:20px;padding-right:20px}
+    footer{padding:28px 20px}
+    .step-grid,.f-grid,.s-grid,.area-list,.vthumbs,.imgstrip-grid{grid-template-columns:1fr}
+    .benefit-row,.benefit-row:nth-child(even){grid-template-columns:1fr;gap:24px}
+    .benefit-row:nth-child(even) .b-text{order:1}
+    .benefit-row:nth-child(even) .b-vis{order:2}
+    table.cmp th,table.cmp td{padding:10px 12px;font-size:13px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <a class="brand" href="/">
+    Latsoudis<span class="plus">+</span>Associates
+    <span class="sub">Πειραιάς</span>
+  </a>
+  <nav class="links">
+    <a href="praktiki.html">Πρακτική</a>
+    <a href="logos.html">Λόγος</a>
+    <a href="omada.html">Ομάδα</a>
+    <a href="epikoinonia.html">Επικοινωνία</a>
+  </nav>
+</header>
+
+<div class="rule"></div>
+
+<!-- §1 ABOVE THE FOLD -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Δικηγορική εταιρία · Έδρα Πειραιάς</div>
+    <h1 class="h-serif h1">
+      Νομική στρατηγική για όσους <em>χτίζουν, μεταφέρουν, διεκδικούν.</em>
+    </h1>
+    <p class="lede">
+      Λατσούδης+Συνεργάτες. Ενενήντα ένα χρόνια άσκησης δικηγορίας, με σημερινή πρακτική
+      ενισχυμένη από τεκμηριωμένη μεθοδολογία και AI-υποβοηθούμενη ανάλυση. Αξιοπρεπής
+      διαχείριση. Καθαρές αποφάσεις. Μετρήσιμα αποτελέσματα.
+    </p>
+    <div class="actions">
+      <a href="epikoinonia.html" class="cta">Πρώτη επικοινωνία →</a>
+      <a href="praktiki.html" class="cta cta-ghost">Πεδία πρακτικής</a>
+    </div>
+    <div class="proof-bar">
+      <span class="lbl">Από το 1926</span>
+      <span class="pill">€3,77M Lafarge · 33,5% · vs Ince &amp; Co</span>
+      <span class="pill">3 Ακτή Μιαούλη, Πειραιάς</span>
+      <span class="pill">Ναυτιλιακό · Εμπορικό · Οικογενειακό</span>
+      <span class="pill">AI-augmented practice</span>
+    </div>
+  </div>
+</section>
+
+<!-- §2 TRANSFORMATION -->
+<section class="transform">
+  <div class="container">
+    <div class="eyebrow">Πώς δουλεύουμε</div>
+    <h2 class="h-serif h2" style="margin:14px 0 0;max-width:760px">
+      Από την πρώτη επικοινωνία στη στρατηγική — τρία βήματα.
+    </h2>
+    <div class="step-grid">
+      <div class="step">
+        <div class="step-num">ΒΗΜΑ 1 · ΗΜΕΡΑ 0</div>
+        <h3>Πρώτη επικοινωνία</h3>
+        <p>Συνάντηση 60 λεπτών. Ακούμε την υπόθεση, διαβάζουμε τα έγγραφα, σας λέμε αν αναλαμβάνουμε. Καμία υπόσχεση χωρίς τεκμηρίωση. Φεύγετε με γνώση των επιλογών σας.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">ΒΗΜΑ 2 · ΕΒΔΟΜΑΔΑ 1</div>
+        <h3>Διάγνωση &amp; στρατηγική</h3>
+        <p>Δομημένη ανάλυση: νομικά ευρήματα, αντίπαλος, χρόνος, κόστος, σενάρια. Παραδοτέο: γραπτή στρατηγική με αριθμημένες επιλογές και πιθανότητες έκβασης.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">ΒΗΜΑ 3 · ΕΚΤΕΛΕΣΗ</div>
+        <h3>Άσκηση &amp; συνεχής επικοινωνία</h3>
+        <p>Καταθέσεις, ακροάσεις, διαπραγματεύσεις — με εβδομαδιαία ενημέρωση και μηνιαίο review προόδου. Εσείς ξέρετε πάντα πού βρισκόμαστε.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- §3 BENEFITS -->
+<section class="benefits">
+  <div class="container">
+    <div class="eyebrow">Τι αλλάζει</div>
+    <h2 class="h-serif h2" style="margin:14px 0 48px;max-width:760px">
+      Όταν αναλαμβάνουμε μια υπόθεση.
+    </h2>
+
+    <div class="benefit-row">
+      <div class="b-text">
+        <div class="eyebrow">Στρατηγική, όχι αντιδραστικότητα</div>
+        <h3>Καθαρή εικόνα από την πρώτη βδομάδα.</h3>
+        <p>Δεν αρχίζουμε με αγωγή. Αρχίζουμε με χάρτη: τι έχουμε, τι θέλει ο αντίπαλος, ποιες κινήσεις έχουν βάση. Έτσι αποφεύγονται οι περιττές κινήσεις που κοστίζουν χρόνο και χρήμα.</p>
+        <div class="b-proof">Παραδοτέο: γραπτή στρατηγική 4–8 σελίδων, αριθμημένες επιλογές, εκτιμώμενες πιθανότητες</div>
+      </div>
+      <div class="b-vis">Στρατηγικός χάρτης</div>
+    </div>
+
+    <div class="benefit-row">
+      <div class="b-text">
+        <div class="eyebrow">Ναυτιλιακή τεχνογνωσία</div>
+        <h3>Από τον Πειραιά, για τον Πειραιά.</h3>
+        <p>P&amp;I claims, charterparty disputes, αξιώσεις πληρώματος, διαιτησία Λονδίνου, Πειραιά, Δουβλίνου. Κληρονομιά Κυριάκου Αρβανίτη — ναυτιλιακή πρακτική που πέρασε από γενιά σε γενιά.</p>
+        <div class="b-proof">€3,77M Lafarge (2023) · 33,5% recovery · κερδίσαμε την Ince &amp; Co</div>
+      </div>
+      <div class="b-vis">Διεθνής διαιτησία</div>
+    </div>
+
+    <div class="benefit-row">
+      <div class="b-text">
+        <div class="eyebrow">AI-augmented ανάλυση</div>
+        <h3>Κάθε έγγραφο διαβασμένο. Δύο φορές.</h3>
+        <p>Χρησιμοποιούμε εσωτερική AI υποδομή (LOSC) για ανάλυση συμβάσεων, αντιπαραβολή εκδόσεων, εντοπισμό ασυνεπειών. Αυτό που έπαιρνε δυο μέρες, παίρνει δυο ώρες — με ανθρώπινη επικύρωση πριν φτάσει σε σας.</p>
+        <div class="b-proof">240.000+ έγγραφα ανά πελάτη · ελληνικά native, χωρίς layer μετάφρασης</div>
+      </div>
+      <div class="b-vis">Document intelligence</div>
+    </div>
+
+    <div class="benefit-row">
+      <div class="b-text">
+        <div class="eyebrow">Διεπιστημονικός σχεδιασμός</div>
+        <h3>Ένα γραφείο, πολλαπλά πεδία.</h3>
+        <p>Εμπορικό, ναυτιλιακό, οικογενειακό, ποινικό, ακίνητα — υπό ένα στρατηγικό μυαλό. Όταν μια υπόθεση αγγίζει πολλά πεδία (συνήθως αγγίζει), δεν χρειάζεστε τρεις δικηγόρους που δεν μιλάνε μεταξύ τους.</p>
+        <div class="b-proof">5 πεδία πρακτικής · 1 διαχειρίστρια εταίρος · 91 χρόνια άσκησης</div>
+      </div>
+      <div class="b-vis">Πεδία πρακτικής</div>
+    </div>
+  </div>
+</section>
+
+<!-- §4 FEATURES -->
+<section class="features">
+  <div class="container">
+    <div class="eyebrow">Τι περιλαμβάνεται πάντα</div>
+    <h2 class="h-serif h2" style="margin:14px 0 0">Σε κάθε υπόθεση που αναλαμβάνουμε.</h2>
+    <div class="f-grid">
+      <div class="feat"><div class="feat-icon">EL</div><h4>Ελληνικά native</h4><p>Καμία υπόθεση δεν πάει ποτέ από αγγλικό layer.</p></div>
+      <div class="feat"><div class="feat-icon">ΣΤΡ</div><h4>Γραπτή στρατηγική</h4><p>Πριν την πρώτη κίνηση, στα χέρια σας.</p></div>
+      <div class="feat"><div class="feat-icon">⟳</div><h4>Εβδομαδιαία ενημέρωση</h4><p>Δεν χρειάζεται να ζητάτε. Έρχεται.</p></div>
+      <div class="feat"><div class="feat-icon">€</div><h4>Διαφάνεια κόστους</h4><p>Πάγια αμοιβή ή ποσοστό — όχι "βλέπουμε".</p></div>
+      <div class="feat"><div class="feat-icon">AI</div><h4>AI-augmented review</h4><p>Κάθε έγγραφο αναλύεται δύο φορές πριν την κατάθεση.</p></div>
+      <div class="feat"><div class="feat-icon">DPA</div><h4>Εμπιστευτικότητα GDPR</h4><p>Δεδομένα σε ευρωπαϊκή υποδομή. DPA με κάθε εταιρικό πελάτη.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- §5 MID CTA -->
+<section class="midcta">
+  <div class="container">
+    <div class="stars"><b>★★★★★</b> &nbsp;·&nbsp; 91 χρόνια συνεχούς άσκησης &nbsp;·&nbsp; €3,77M Lafarge benchmark</div>
+    <h3 class="h-serif h2">Δεν χρειάζεστε άλλη γνώμη. Χρειάζεστε στρατηγική.</h3>
+    <p>Πέντε ώρες πρώτης ανάλυσης από εμάς αντικαθιστούν δύο μήνες αναζήτησης δικηγόρου. Αν αναλάβουμε, ξέρετε γιατί. Αν δεν αναλάβουμε, ξέρετε σε ποιον να απευθυνθείτε.</p>
+    <a href="epikoinonia.html" class="cta">Ραντεβού 60 λεπτών →</a>
+  </div>
+</section>
+
+<!-- §6 PRACTICE AREAS -->
+<section class="areas">
+  <div class="container">
+    <div class="eyebrow">Πεδία πρακτικής</div>
+    <h2 class="h-serif h2" style="margin:14px 0 0;max-width:760px">
+      Πέντε πεδία. Ένα γραφείο. Ένας στρατηγικός σχεδιασμός.
+    </h2>
+
+    <div class="area-list">
+      <div class="area">
+        <div class="area-num">01 · Έδρα μας</div>
+        <h4>Ναυτιλιακό</h4>
+        <p class="area-one">Από τον Πειραιά — όπου οδηγεί η ίδια η γεωγραφία.</p>
+        <ul class="area-list-ul">
+          <li>P&amp;I claims · charterparty disputes</li>
+          <li>Αξιώσεις πληρώματος · ατυχήματα</li>
+          <li>Διαιτησία Λονδίνου / Πειραιά / Δουβλίνου</li>
+          <li>Συμβάσεις πώλησης / αγοράς πλοίου</li>
+        </ul>
+      </div>
+
+      <div class="area">
+        <div class="area-num">02 · Εταιρικό</div>
+        <h4>Εμπορικό</h4>
+        <p class="area-one">Επιχειρηματική στρατηγική με νομική θωράκιση.</p>
+        <ul class="area-list-ul">
+          <li>Ίδρυση / αναδιάρθρωση εταιρειών</li>
+          <li>Συμβάσεις διανομής · αντιπροσωπείας</li>
+          <li>M&amp;A · due diligence</li>
+          <li>Εμπορικές διαφορές · αγωγές αποζημίωσης</li>
+        </ul>
+      </div>
+
+      <div class="area">
+        <div class="area-num">03 · Ευαίσθητο</div>
+        <h4>Οικογενειακό</h4>
+        <p class="area-one">Πιο από νόμος — ισορροπία ανθρώπων και αναγκών.</p>
+        <ul class="area-list-ul">
+          <li>Διαζύγια · ασφαλιστικά μέτρα</li>
+          <li>Επιμέλεια · διατροφή τέκνων</li>
+          <li>Διαμεσολάβηση πριν τη δίκη</li>
+          <li>Εκτέλεση αλλοδαπών αποφάσεων</li>
+        </ul>
+      </div>
+
+      <div class="area">
+        <div class="area-num">04 · Άμυνα</div>
+        <h4>Ποινικό</h4>
+        <p class="area-one">Με νηφαλιότητα και δομημένο σχεδιασμό άμυνας.</p>
+        <ul class="area-list-ul">
+          <li>Οικονομικά εγκλήματα · απάτη</li>
+          <li>Ποινική δίωξη μελών διοίκησης</li>
+          <li>Παράσταση πολιτικής αγωγής</li>
+          <li>Αναιρέσεις στον Άρειο Πάγο</li>
+        </ul>
+      </div>
+
+      <div class="area" style="grid-column:1/-1">
+        <div class="area-num">05 · Περιουσιακό</div>
+        <h4>Ακίνητα &amp; Κληρονομικά</h4>
+        <p class="area-one">Από αγοραπωλησία ως διανομή κληρονομιάς — με γνώση των τοπικών ιδιαιτεροτήτων (Πειραιάς, Φωκίδα, Γαλαξίδι).</p>
+        <ul class="area-list-ul">
+          <li>Έλεγχος τίτλων · συμβολαιογραφικές πράξεις</li>
+          <li>Αγωγές διανομής · διεκδικητικές</li>
+          <li>Διαθήκες · κληρονομικές διαφορές</li>
+          <li>Κτηματολόγιο · χωρίσματα · παραλιακή ζώνη</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §7 SOCIAL PROOF -->
+<section class="social">
+  <div class="container">
+    <div class="eyebrow">Η εμπιστοσύνη πελατών</div>
+    <h2 class="h-serif h2" style="margin:14px 0 0;max-width:760px">Δεν λέμε εμείς πως είμαστε καλοί.</h2>
+    <p style="font-size:16px;color:var(--ink-soft);max-width:680px;margin:14px 0 0">
+      Το αρχείο μιλά. Από το 1926 ως σήμερα, μια αδιάσπαστη γραμμή από υποθέσεις που γράφτηκαν.
+    </p>
+    <div class="s-grid">
+      <div class="quote">
+        <q>Lafarge Beton — ανάκτηση €3,77 εκατ., ποσοστό 33,5%, ενάντια στην Ince &amp; Co. Η υπόθεση που έθεσε τον πήχη.</q>
+        <div class="quote-attr">Αρχείο L+A · 2023 · δημόσιο</div>
+      </div>
+      <div class="quote">
+        <q>Ναυτιλιακή πρακτική κληρονομημένη απευθείας από τον Κυριάκο Αρβανίτη. Από αυτή τη γραμμή, P&amp;I και charterparty disputes σε δεκάδες υποθέσεις.</q>
+        <div class="quote-attr">Lineage · Πειραιάς · 1926→σήμερα</div>
+      </div>
+      <div class="quote">
+        <q>LOSC — η εσωτερική AI υποδομή που χρησιμοποιούμε εμείς οι ίδιοι κάθε μέρα. Ό,τι προσφέρουμε ως μεθοδολογία, το ζούμε ως πρακτική.</q>
+        <div class="quote-attr">Eat-own-cooking · production 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §8 VIDEO/CASE STRIP -->
+<section class="vstrip">
+  <div class="container">
+    <div class="eyebrow">Δείτε τη μεθοδολογία</div>
+    <h3 class="h-serif h3">Σύντομες παρουσιάσεις σε διπλά λεπτά.</h3>
+    <div class="vthumbs">
+      <div class="vthumb"><span>Lafarge<br>case study · 2′</span></div>
+      <div class="vthumb"><span>Λόγος<br>μεθοδολογία · 90″</span></div>
+      <div class="vthumb"><span>P&amp;I claims<br>workflow · 2′</span></div>
+      <div class="vthumb"><span>AI-augmented<br>review · 90″</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- §9 COMPARISON -->
+<section class="compare">
+  <div class="container">
+    <div class="eyebrow">Γιατί εμάς, όχι κάποιον άλλο</div>
+    <h2 class="h-serif h2" style="margin:14px 0 0;max-width:760px">Τρεις ειλικρινείς εναλλακτικές.</h2>
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="la-col">L+A</th>
+          <th>Solo δικηγόρος</th>
+          <th>Μεγάλη Αθηναϊκή εταιρία</th>
+          <th>Διεθνές γραφείο</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Έδρα Πειραιά</td><td class="la-col"><span class="yes">Ναι · 91 χρόνια</span></td><td>Ποικίλει</td><td><span class="no">Όχι, Αθήνα</span></td><td><span class="no">Όχι, Λονδίνο</span></td></tr>
+        <tr><td>Ναυτιλιακή lineage</td><td class="la-col"><span class="yes">Από τον Αρβανίτη</span></td><td>Σπάνια</td><td>Συχνά</td><td>Ναι</td></tr>
+        <tr><td>Πολλά πεδία υπό ένα μυαλό</td><td class="la-col"><span class="yes">Ναι</span></td><td>Ένα πεδίο μόνο</td><td>Ομάδες ξεχωριστές</td><td>Ομάδες ξεχωριστές</td></tr>
+        <tr><td>AI-augmented review</td><td class="la-col"><span class="yes">Ενσωματωμένο</span></td><td><span class="no">Όχι</span></td><td>Ad-hoc</td><td>Ad-hoc</td></tr>
+        <tr><td>Διαφάνεια αμοιβής</td><td class="la-col"><span class="yes">Πάγιο ή %</span></td><td>Ποικίλει</td><td>Ωριαία</td><td>Premium ωριαία</td></tr>
+        <tr><td>Εβδομαδιαία ενημέρωση</td><td class="la-col"><span class="yes">Πάντα</span></td><td>Όταν θυμάται</td><td>Συνήθως όχι</td><td>Συνήθως όχι</td></tr>
+        <tr><td>Lafarge benchmark</td><td class="la-col"><span class="yes">€3,77M / 33,5%</span></td><td><span class="no">—</span></td><td>Δικά τους</td><td>Δικά τους</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- §10 FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="eyebrow">Συχνές ερωτήσεις</div>
+    <h2 class="h-serif h2" style="margin:14px 0 0;max-width:760px">Κάθε ερώτηση είναι μια αμφιβολία προς αφαίρεση.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3 class="faq-q">Πόσο κοστίζει η πρώτη συνάντηση;</h3>
+        <p class="faq-a">Τα πρώτα 60 λεπτά είναι χωρίς χρέωση. Φεύγετε με γνώση των επιλογών σας — είτε αναλάβουμε είτε όχι. Αν χρειαστεί δεύτερη συνάντηση πριν αποφασίσετε, χρεώνεται κανονικά.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Δουλεύετε με σταθερή αμοιβή ή ωριαία;</h3>
+        <p class="faq-a">Όπου είναι εφικτό, σταθερή αμοιβή ή ποσοστό επιτυχίας. Σε σύνθετες υποθέσεις (διαιτησίες, ποινικά μεγάλης κλίμακας), ωριαία με συμφωνημένο πλαφόν. Πάντα εκ των προτέρων, γραπτώς.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Τι σημαίνει "AI-augmented" — αντικαθιστά τον δικηγόρο;</h3>
+        <p class="faq-a">Όχι. Ενισχύει. Η AI υποδομή μας (LOSC) διαβάζει συμβάσεις, αντιπαραβάλλει εκδόσεις, εντοπίζει ασυνέπειες — γρηγορότερα και πιο εξαντλητικά από τον άνθρωπο. Αλλά κάθε έξοδος επικυρώνεται από δικηγόρο πριν φτάσει σε εσάς.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Τα δεδομένα μου είναι ασφαλή;</h3>
+        <p class="faq-a">Τα έγγραφά σας μένουν σε ευρωπαϊκή υποδομή. Δεν περνούν από αμερικανικά clouds. Υπογράφουμε DPA με κάθε εταιρικό πελάτη. Έχουμε δικιά μας local Ollama υποδομή για ευαίσθητες υποθέσεις.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Αναλαμβάνετε κάθε υπόθεση;</h3>
+        <p class="faq-a">Όχι. Η πρώτη συνάντηση καταλήγει σε μία από τρεις απαντήσεις: <em>Αναλαμβάνουμε. Δεν αναλαμβάνουμε αλλά μπορούμε να σας πούμε σε ποιον να απευθυνθείτε. Δεν χρειάζεστε δικηγόρο — αυτό λύνεται διαφορετικά.</em> Όλες οι τρεις απαντήσεις είναι ισότιμες.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Είστε στον Πειραιά αλλά εγώ είμαι στη Θεσσαλονίκη / Φωκίδα / εξωτερικό;</h3>
+        <p class="faq-a">Δουλεύουμε υβριδικά. Πρώτη συνάντηση online ή στον Πειραιά, ανάλογα. Παρουσία σε δικαστήρια όπου χρειάζεται — έχουμε εμπειρία σε Αθήνα, Πειραιά, Άμφισσα, Λονδίνο, Δουβλίνο.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Τι σημαίνει το "+" στο όνομα;</h3>
+        <p class="faq-a">Συνεργασία. Το γραφείο δεν είναι ένα όνομα — είναι μια ομάδα. Διαχειρίστρια εταίρος ο Απόλλωνας Λατσούδης, ιδρυτής Γεώργιος Λατσούδης (1926). Από εκεί, οι συνεργάτες — ο πληθυντικός που γράφεται με σύμβολο.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §11 IMAGE STRIP -->
+<section class="imgstrip">
+  <div class="container">
+    <div class="eyebrow">Στιγμές</div>
+    <div class="imgstrip-grid">
+      <div class="tile">3 Ακτή Μιαούλη</div>
+      <div class="tile">Library</div>
+      <div class="tile">Πελάτες</div>
+      <div class="tile">Court Δουβλίνο</div>
+    </div>
+  </div>
+</section>
+
+<!-- §12 FINAL CTA -->
+<section class="final">
+  <div class="container">
+    <h2>Όσοι χτίζουν, μεταφέρουν, διεκδικούν <em>αξίζουν στρατηγική.</em></h2>
+    <p>Πείτε μας τι σας απασχολεί. Σε εξήντα λεπτά, ξέρετε αν αναλαμβάνουμε — και τι σημαίνει αυτό για σας.</p>
+    <a href="epikoinonia.html" class="cta">Πρώτη επικοινωνία →</a>
+    <div class="final-trust">
+      <span>✓ Πρώτη συνάντηση χωρίς χρέωση</span>
+      <span>✓ Γραπτή στρατηγική σε 7 ημέρες</span>
+      <span>✓ Διαφάνεια αμοιβής εκ των προτέρων</span>
+      <span>✓ GDPR · DPA</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Latsoudis+Associates · 3 Ακτή Μιαούλη, Πειραιάς · est. 1926</div>
+  <div>info@latsoudislaw.com · +30 210 ...</div>
+</footer>
+
+</body>
+</html>
